@@ -18,8 +18,8 @@ var connected = mysql.createConnection({
 // Display bamazon Inventory
 connected.connect(function(error) {
   if (error) throw error;
-  console.log("******WELCOME TO BAMAZON******");
-  console.log("-------------------------------------");
+  //   console.log("******WELCOME TO BAMAZON******");
+  //   console.log("-------------------------------------");
 });
 
 function begin() {
@@ -27,20 +27,18 @@ function begin() {
     if (error) throw error;
     for (var i = 0; i < res.length; i++) {
       console.log(
-        "Product ID: " +
+        "Item ID: " +
           res[i].item_id +
-          " || Product Name: " +
+          " | Product: " +
           res[i].product_name +
-          " || Price: " +
+          " | Price: " +
           res[i].price
       );
     }
   });
 }
 
-begin();
-
-// Customer input prompt. FIXED 
+// Customer input prompt. FIXED
 inquirer.prompt([
   {
     type: "input",
@@ -68,6 +66,7 @@ inquirer.prompt([
   }
 ]);
 
+begin();
 
 //     if(error) throw error;
 //     console.log("Connection ID: " + connected.threadId + "\n");
