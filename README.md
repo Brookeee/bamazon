@@ -6,10 +6,10 @@ Technology Used
 * MySQL
 * Node.js
 
-Customer Instuctions 
+Customer Instructions 
 
 1) Select the product ID you'd like to purchase 
-2) Enter in the quanity you;d like to purchase 
+2) Enter in the quanity you'd like to purchase 
 3) Ensure Bamazon has enough inventory to fulfill your request 
 
 

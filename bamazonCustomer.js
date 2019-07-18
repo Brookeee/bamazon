@@ -15,13 +15,15 @@ var connected = mysql.createConnection({
   database: "bamazonprods"
 });
 
-// Display bamazon Inventory. Welcome comes after question.. FIX!
+// Display bamazon Inventory
 connected.connect(function(error) {
   if (error) throw error;
   begin();
   console.log("****** WELCOME TO BAMAZON ******");
   console.log("-------------------------------------");
 });
+
+// Product inventory 
 
 function begin() {
   connected.query("SELECT * FROM products", function(error, res) {
@@ -33,9 +35,11 @@ function begin() {
           " | Product: " +
           res[i].product_name +
           " | Price: " +
-          res[i].price
+          res[i].price + " | Stock Quantity: " + 
+          res[i].stock_qty
       );
     }
+    // Prompts for user response
     inquirer
       .prompt([
         {
@@ -80,8 +84,19 @@ function begin() {
       });
   });
 }
-function customerOrder(id, qtyWant) {
-  connected.query("SELECT * FROM products WHERE item_id " + id, function(error,res) {
 
-  })
-}
+// Stock check and order code. **WIP FIX!**
+// function customerOrder(customerWant) {
+  // id input not accessible in this code
+//   connected.query("SELECT * FROM products WHERE item_id=?", customerWant.id, function(error, res){
+//    For loop? 
+//       if (customerWant.quantity > res[i].stock_qty);
+//       console.log("Sorry, there is not enough inventory")
+//     }
+//   })
+// }
+
+// customerOrder();
+
+
+
